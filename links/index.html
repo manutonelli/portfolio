@@ -10,9 +10,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
-      min-height: 100%;
-    }
+    html, body { min-height: 100%; }
 
     body {
       background: #0d0d0d;
@@ -20,72 +18,44 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       padding: 48px 20px 64px;
     }
 
     .content {
       width: 100%;
-      max-width: 500px;
+      max-width: 440px;
     }
 
     /* HEADER */
-    .header {
-      text-align: center;
-      margin-bottom: 36px;
-    }
+    .header { text-align: center; margin-bottom: 36px; }
 
     .logo-wrap {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 64px;
-      height: 64px;
-      background: #fff;
-      border-radius: 10px;
-      margin-bottom: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 64px; height: 64px; background: #fff; border-radius: 10px; margin-bottom: 12px;
     }
 
     .logo-inner {
-      font-weight: 900;
-      font-size: 7px;
-      letter-spacing: 0.05em;
-      text-align: center;
-      color: #111;
-      line-height: 1.2;
-      text-transform: uppercase;
+      font-weight: 900; font-size: 7px; letter-spacing: 0.05em;
+      text-align: center; color: #111; line-height: 1.2; text-transform: uppercase;
     }
-
-    .logo-inner .bot {
-      font-size: 13px;
-      display: block;
-    }
+    .logo-inner .bot { font-size: 13px; display: block; }
 
     .brand {
-      color: #fff;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      display: block;
+      color: #fff; font-size: 20px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; display: block;
     }
-
     .tagline {
-      color: #444;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-top: 5px;
-      display: block;
+      color: #444; font-size: 11px; letter-spacing: 0.18em;
+      text-transform: uppercase; margin-top: 5px; display: block;
     }
 
     /* KEYBOARD */
-    .kb-scene {
-      perspective: 900px;
-      width: 100%;
-    }
+    .kb-scene { perspective: 700px; width: 100%; }
 
     .keyboard {
-      transform: rotateX(28deg) rotateZ(-4deg);
+      transform: rotateX(26deg) rotateZ(-3deg);
       transform-style: preserve-3d;
       background: #e2e0da;
       border-radius: 14px;
@@ -94,30 +64,17 @@
       box-shadow:
         0 4px 0 #b0aea8,
         0 8px 0 #989690,
-        0 20px 50px rgba(0, 0, 0, 0.8),
+        0 20px 50px rgba(0,0,0,0.8),
         inset 0 1px 0 #f5f3ef;
     }
 
     .kb-label {
-      color: #aaa8a2;
-      font-size: 8px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 16px;
+      color: #aaa8a2; font-size: 8px; letter-spacing: 0.25em;
+      text-transform: uppercase; text-align: center; margin-bottom: 16px;
     }
 
-    .key-rows {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .key-row {
-      display: flex;
-      gap: 8px;
-      align-items: stretch;
-    }
+    .key-rows { display: flex; flex-direction: column; gap: 8px; }
+    .key-row { display: flex; gap: 8px; align-items: stretch; }
 
     /* BASE KEY */
     .key {
@@ -142,174 +99,99 @@
       border: none;
       -webkit-tap-highlight-color: transparent;
     }
-
-    .key:hover {
-      background: #faf8f4;
-    }
-
+    .key:hover { background: #faf8f4; }
     .key:active {
       transform: translateY(4px);
-      box-shadow:
-        0 1px 0 #c0beb8,
-        1px 0 0 #dddbd5,
-        inset 0 1px 0 #ffffff;
+      box-shadow: 0 1px 0 #c0beb8, 1px 0 0 #dddbd5, inset 0 1px 0 #ffffff;
     }
 
     .key .k-main {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #2a2828;
-      line-height: 1;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; color: #2a2828; line-height: 1;
     }
-
     .key .k-sub {
-      font-size: 8.5px;
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      color: #aaa;
-      margin-top: 3px;
-      line-height: 1;
+      font-size: 8.5px; font-weight: 400; letter-spacing: 0.03em;
+      color: #aaa; margin-top: 3px; line-height: 1;
     }
-
     .key .k-corner {
-      position: absolute;
-      top: 8px;
-      right: 9px;
-      font-size: 9px;
-      color: #ccc;
-      font-weight: 700;
+      position: absolute; top: 8px; right: 9px;
+      font-size: 9px; color: #ccc; font-weight: 700;
     }
 
     /* CTRL KEY */
     .key-ctrl {
       background: #1e1e1e;
-      box-shadow:
-        0 5px 0 #050505,
-        3px 0 0 #111,
-        inset 0 1px 0 #333,
-        inset 1px 0 0 #2a2a2a;
+      box-shadow: 0 5px 0 #050505, 3px 0 0 #111, inset 0 1px 0 #333, inset 1px 0 0 #2a2a2a;
       flex: 1.8;
       cursor: default;
       animation: pressCtrl 5s ease-in-out infinite;
     }
-
     .key-ctrl:hover { background: #242424; }
-
-    .key-ctrl:active {
-      transform: translateY(4px);
-      box-shadow: 0 1px 0 #050505, 1px 0 0 #111, inset 0 1px 0 #333;
-    }
-
-    .key-ctrl .k-main {
-      color: #fff;
-      font-size: 15px;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-    }
-
-    .key-ctrl .k-sub {
-      color: #444;
-      font-size: 8px;
-    }
+    .key-ctrl:active { transform: translateY(4px); box-shadow: 0 1px 0 #050505, 1px 0 0 #111, inset 0 1px 0 #333; }
+    .key-ctrl .k-main { color: #fff; font-size: 15px; font-weight: 900; letter-spacing: 0.12em; }
+    .key-ctrl .k-sub { color: #444; font-size: 8px; }
 
     @keyframes pressCtrl {
-      0%, 82%, 100% {
-        transform: translateY(0);
-        box-shadow: 0 5px 0 #050505, 3px 0 0 #111, inset 0 1px 0 #333, inset 1px 0 0 #2a2a2a;
-      }
-      86% {
-        transform: translateY(4px);
-        box-shadow: 0 1px 0 #050505, 1px 0 0 #111, inset 0 1px 0 #333;
-      }
-      90% {
-        transform: translateY(0);
-        box-shadow: 0 5px 0 #050505, 3px 0 0 #111, inset 0 1px 0 #333, inset 1px 0 0 #2a2a2a;
-      }
+      0%,82%,100% { transform: translateY(0); box-shadow: 0 5px 0 #050505, 3px 0 0 #111, inset 0 1px 0 #333, inset 1px 0 0 #2a2a2a; }
+      86% { transform: translateY(4px); box-shadow: 0 1px 0 #050505, 1px 0 0 #111, inset 0 1px 0 #333; }
+      90% { transform: translateY(0); box-shadow: 0 5px 0 #050505, 3px 0 0 #111, inset 0 1px 0 #333, inset 1px 0 0 #2a2a2a; }
     }
 
     /* ENTER KEY */
     .key-enter {
       background: #1e1e1e;
-      box-shadow:
-        0 5px 0 #050505,
-        3px 0 0 #111,
-        inset 0 1px 0 #333,
-        inset 1px 0 0 #2a2a2a;
+      box-shadow: 0 5px 0 #050505, 3px 0 0 #111, inset 0 1px 0 #333, inset 1px 0 0 #2a2a2a;
       flex: 1.4;
     }
-
     .key-enter:hover { background: #242424; }
-
-    .key-enter:active {
-      transform: translateY(4px);
-      box-shadow: 0 1px 0 #050505, 1px 0 0 #111, inset 0 1px 0 #333;
-    }
-
-    .key-enter .k-main {
-      color: #fff;
-      font-size: 10px;
-      letter-spacing: 0.06em;
-    }
-
+    .key-enter:active { transform: translateY(4px); box-shadow: 0 1px 0 #050505, 1px 0 0 #111, inset 0 1px 0 #333; }
+    .key-enter .k-main { color: #fff; font-size: 10px; letter-spacing: 0.06em; }
     .key-enter .k-sub { color: #444; }
 
     /* SPACEBAR */
     .key-space {
-      flex: 4;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 16px;
-      min-height: 46px;
+      flex: 4; flex-direction: row; align-items: center;
+      justify-content: space-between; padding: 0 16px; min-height: 46px;
     }
-
-    .key-space .k-label {
-      font-size: 9px;
-      color: #bbb;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .key-space .k-url {
-      font-size: 10px;
-      font-weight: 700;
-      color: #2a2828;
-      letter-spacing: 0.04em;
-    }
+    .key-space .k-label { font-size: 9px; color: #bbb; letter-spacing: 0.18em; text-transform: uppercase; }
+    .key-space .k-url { font-size: 10px; font-weight: 700; color: #2a2828; letter-spacing: 0.04em; }
 
     /* FOOTER */
     .footer {
-      margin-top: 40px;
-      text-align: center;
-      color: #2a2a2a;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+      margin-top: 40px; text-align: center;
+      color: #2a2a2a; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
     }
-    .logo {
-  width: 200px;
-  max-width: 80%;
-  height: auto;
-  display: block;
-  margin: 0 auto 24px;
-}
 
-    /* RESPONSIVE */
-    @media (max-width: 420px) {
-      body { padding: 32px 14px 48px; }
-
+    /* ── DESKTOP: sin tilt, centrado, tamaño fijo ── */
+    @media (min-width: 768px) {
+      body { padding: 60px 40px 80px; justify-content: center; }
+      .content { max-width: 500px; }
+      .kb-scene { perspective: none; }
       .keyboard {
-        padding: 16px 13px 20px;
-        transform: rotateX(22deg) rotateZ(-3deg);
+        transform: none;
+        box-shadow:
+          0 4px 0 #b0aea8,
+          0 8px 0 #989690,
+          0 24px 60px rgba(0,0,0,0.45),
+          inset 0 1px 0 #f5f3ef;
       }
+      .key { min-height: 68px; padding: 12px 14px; }
+      .key .k-main { font-size: 12px; }
+      .key .k-sub { font-size: 9px; }
+      .key-ctrl .k-main { font-size: 16px; }
+      .key-space .k-label { font-size: 10px; }
+      .key-space .k-url { font-size: 11px; }
+    }
 
-      .key { min-height: 52px; padding: 8px 10px 8px; }
+    /* ── MOBILE SMALL ── */
+    @media (max-width: 380px) {
+      body { padding: 28px 12px 48px; }
+      .keyboard { padding: 14px 12px 18px; }
+      .key { min-height: 52px; padding: 8px 9px; }
       .key .k-main { font-size: 10px; }
-      .key .k-sub { font-size: 8px; }
-      .key-ctrl .k-main { font-size: 13px; }
-      .key-space { padding: 0 12px; }
+      .key .k-sub { font-size: 7.5px; }
+      .key-ctrl .k-main { font-size: 12px; }
+      .key-space { padding: 0 10px; }
       .key-space .k-url { font-size: 9px; }
     }
   </style>
@@ -320,7 +202,9 @@
 
     <div class="header">
       <div class="logo-wrap">
-        <img src="/links/ctrl-logo.png" alt="Ctrl Studio" class="logo">
+        <div class="logo-inner">
+          <span>CTRL</span>
+          <span class="bot">STUDIO</span>
         </div>
       </div>
       <span class="brand">Ctrl Studio</span>
@@ -332,7 +216,6 @@
         <div class="kb-label">— seleccioná una tecla —</div>
         <div class="key-rows">
 
-          <!-- Row 1 -->
           <div class="key-row">
             <a class="key" href="https://www.ctrlstudiodev.com/" target="_blank">
               <span class="k-corner">↗</span>
@@ -351,14 +234,13 @@
             </a>
           </div>
 
-          <!-- Row 2 -->
           <div class="key-row">
             <a class="key" href="https://www.instagram.com/ctrlstudio.dev/" target="_blank">
               <span class="k-corner">↗</span>
               <span class="k-main">Instagram</span>
               <span class="k-sub">@ctrlstudio.dev</span>
             </a>
-            <a class="key" href="mailto:hola@ctrlstudiodev.com" target="_blank">
+            <a class="key" href="mailto:hola@ctrlstudiodev.com">
               <span class="k-corner">↗</span>
               <span class="k-main">Mail</span>
               <span class="k-sub">hola@ctrlstudiodev</span>
@@ -369,7 +251,6 @@
             </a>
           </div>
 
-          <!-- Row 3 -->
           <div class="key-row">
             <div class="key key-ctrl">
               <span class="k-main">CTRL</span>
