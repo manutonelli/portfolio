@@ -1,202 +1,294 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="/links/ctrl-logo.png" type="image/png">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Barlow:wght@400;500&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CTRL Studio — Links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      min-height: 100%;
+    }
 
-  body {
-    background: #EDECEA;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Barlow', sans-serif;
-    overflow-x: hidden;
-  }
+    body {
+      background: #0d0d0d;
+      font-family: 'Space Grotesk', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 64px;
+    }
 
-  .container {
-    width: 100%;
-    max-width: 420px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 28px;
-    position: relative;
-  }
+    .content {
+      width: 100%;
+      max-width: 500px;
+    }
 
-  .bg-text {
-    position: fixed;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 28vw;
-    color: rgba(0,0,0,0.045);
-    letter-spacing: -0.04em;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    user-select: none;
-    pointer-events: none;
-    white-space: nowrap;
-    z-index: 0;
-  }
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
 
-  .brand {
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-    z-index: 1;
-    animation: fadeUp 0.6s ease both;
-  }
+    .logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: #fff;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
 
-  .logo-mark {
-    display: inline-block;
-    background: #111;
-    color: #EDECEA;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    padding: 3px 8px 2px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
+    .logo-inner {
+      font-weight: 900;
+      font-size: 7px;
+      letter-spacing: 0.05em;
+      text-align: center;
+      color: #111;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
 
-  .brand-name {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 900;
-    font-size: 64px;
-    line-height: 0.88;
-    letter-spacing: -0.02em;
-    color: #111;
-    text-transform: uppercase;
-    display: block;
-  }
+    .logo-inner .bot {
+      font-size: 13px;
+      display: block;
+    }
 
-  .tagline {
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    color: #888;
-    text-transform: uppercase;
-    margin-top: 12px;
-    display: block;
-  }
+    .brand {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+    }
 
-  .divider {
-    width: 100%;
-    height: 1px;
-    background: #111;
-    margin-bottom: 32px;
-    position: relative;
-    z-index: 1;
-    animation: fadeUp 0.6s 0.1s ease both;
-    opacity: 0;
-    animation-fill-mode: forwards;
-  }
+    .tagline {
+      color: #444;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-top: 5px;
+      display: block;
+    }
 
-  .links {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    position: relative;
-    z-index: 1;
-  }
+    /* KEYBOARD */
+    .kb-scene {
+      perspective: 900px;
+      width: 100%;
+    }
 
-  .link-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 18px 22px;
-    text-decoration: none;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border: 2px solid #111;
-    background: transparent;
-    color: #111;
-    cursor: pointer;
-    transition: all 0.18s cubic-bezier(0.4,0,0.2,1);
-    position: relative;
-    overflow: hidden;
-    animation: fadeUp 0.5s ease both;
-    opacity: 0;
-    animation-fill-mode: forwards;
-  }
+    .keyboard {
+      transform: rotateX(28deg) rotateZ(-4deg);
+      transform-style: preserve-3d;
+      background: #e2e0da;
+      border-radius: 14px;
+      padding: 20px 18px 24px;
+      border: 1px solid #c8c6c0;
+      box-shadow:
+        0 4px 0 #b0aea8,
+        0 8px 0 #989690,
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 #f5f3ef;
+    }
 
-  .link-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: #111;
-    transform: translateX(-100%);
-    transition: transform 0.22s cubic-bezier(0.4,0,0.2,1);
-    z-index: 0;
-  }
+    .kb-label {
+      color: #aaa8a2;
+      font-size: 8px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 16px;
+    }
 
-  .link-btn:hover::before { transform: translateX(0); }
-  .link-btn:hover { color: #EDECEA; }
-  .link-btn:hover .icon-stroke { stroke: #EDECEA; }
-  .link-btn:hover .icon-fill { fill: #EDECEA; }
-  .link-btn:hover .arrow-icon { stroke: #EDECEA; }
+    .key-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
-  .left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-    z-index: 1;
-  }
+    .key-row {
+      display: flex;
+      gap: 8px;
+      align-items: stretch;
+    }
 
-  .left span { position: relative; z-index: 1; }
+    /* BASE KEY */
+    .key {
+      background: #f5f3ef;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 10px 12px 10px;
+      text-decoration: none;
+      position: relative;
+      min-height: 62px;
+      flex: 1;
+      box-shadow:
+        0 5px 0 #c0beb8,
+        3px 0 0 #dddbd5,
+        inset 0 1px 0 #ffffff,
+        inset 1px 0 0 #faf8f4;
+      transition: box-shadow 0.07s, transform 0.07s, background 0.07s;
+      border: none;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-  .link-btn svg {
-    position: relative;
-    z-index: 1;
-    flex-shrink: 0;
-  }
+    .key:hover {
+      background: #faf8f4;
+    }
 
-  .icon-stroke { transition: stroke 0.18s; }
-  .icon-fill { transition: fill 0.18s; }
-  .arrow-icon { transition: stroke 0.18s; position: relative; z-index: 1; }
+    .key:active {
+      transform: translateY(4px);
+      box-shadow:
+        0 1px 0 #c0beb8,
+        1px 0 0 #dddbd5,
+        inset 0 1px 0 #ffffff;
+    }
 
-  .link-btn.primary {
-    background: #111;
-    color: #EDECEA;
-  }
-  .link-btn.primary .icon-stroke { stroke: #EDECEA; }
-  .link-btn.primary .icon-fill { fill: #EDECEA; }
-  .link-btn.primary .arrow-icon { stroke: #EDECEA; }
-  .link-btn.primary::before { background: #2a2a2a; }
+    .key .k-main {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #2a2828;
+      line-height: 1;
+    }
 
-  .link-btn:nth-child(1) { animation-delay: 0.2s; }
-  .link-btn:nth-child(2) { animation-delay: 0.3s; }
-  .link-btn:nth-child(3) { animation-delay: 0.4s; }
-  .link-btn:nth-child(4) { animation-delay: 0.5s; }
+    .key .k-sub {
+      font-size: 8.5px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: #aaa;
+      margin-top: 3px;
+      line-height: 1;
+    }
 
-  .footer {
-    margin-top: 40px;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: #aaa;
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    animation: fadeUp 0.5s 0.6s ease both;
-    opacity: 0;
-    animation-fill-mode: forwards;
-  }
-  .logo {
+    .key .k-corner {
+      position: absolute;
+      top: 8px;
+      right: 9px;
+      font-size: 9px;
+      color: #ccc;
+      font-weight: 700;
+    }
+
+    /* CTRL KEY */
+    .key-ctrl {
+      background: #1e1e1e;
+      box-shadow:
+        0 5px 0 #050505,
+        3px 0 0 #111,
+        inset 0 1px 0 #333,
+        inset 1px 0 0 #2a2a2a;
+      flex: 1.8;
+      cursor: default;
+      animation: pressCtrl 5s ease-in-out infinite;
+    }
+
+    .key-ctrl:hover { background: #242424; }
+
+    .key-ctrl:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #050505, 1px 0 0 #111, inset 0 1px 0 #333;
+    }
+
+    .key-ctrl .k-main {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+    }
+
+    .key-ctrl .k-sub {
+      color: #444;
+      font-size: 8px;
+    }
+
+    @keyframes pressCtrl {
+      0%, 82%, 100% {
+        transform: translateY(0);
+        box-shadow: 0 5px 0 #050505, 3px 0 0 #111, inset 0 1px 0 #333, inset 1px 0 0 #2a2a2a;
+      }
+      86% {
+        transform: translateY(4px);
+        box-shadow: 0 1px 0 #050505, 1px 0 0 #111, inset 0 1px 0 #333;
+      }
+      90% {
+        transform: translateY(0);
+        box-shadow: 0 5px 0 #050505, 3px 0 0 #111, inset 0 1px 0 #333, inset 1px 0 0 #2a2a2a;
+      }
+    }
+
+    /* ENTER KEY */
+    .key-enter {
+      background: #1e1e1e;
+      box-shadow:
+        0 5px 0 #050505,
+        3px 0 0 #111,
+        inset 0 1px 0 #333,
+        inset 1px 0 0 #2a2a2a;
+      flex: 1.4;
+    }
+
+    .key-enter:hover { background: #242424; }
+
+    .key-enter:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #050505, 1px 0 0 #111, inset 0 1px 0 #333;
+    }
+
+    .key-enter .k-main {
+      color: #fff;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+    }
+
+    .key-enter .k-sub { color: #444; }
+
+    /* SPACEBAR */
+    .key-space {
+      flex: 4;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      min-height: 46px;
+    }
+
+    .key-space .k-label {
+      font-size: 9px;
+      color: #bbb;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .key-space .k-url {
+      font-size: 10px;
+      font-weight: 700;
+      color: #2a2828;
+      letter-spacing: 0.04em;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #2a2a2a;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .logo {
   width: 200px;
   max-width: 80%;
   height: auto;
@@ -204,98 +296,98 @@
   margin: 0 auto 24px;
 }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+    /* RESPONSIVE */
+    @media (max-width: 420px) {
+      body { padding: 32px 14px 48px; }
+
+      .keyboard {
+        padding: 16px 13px 20px;
+        transform: rotateX(22deg) rotateZ(-3deg);
+      }
+
+      .key { min-height: 52px; padding: 8px 10px 8px; }
+      .key .k-main { font-size: 10px; }
+      .key .k-sub { font-size: 8px; }
+      .key-ctrl .k-main { font-size: 13px; }
+      .key-space { padding: 0 12px; }
+      .key-space .k-url { font-size: 9px; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="bg-text">CTRL</div>
+  <div class="content">
 
-<div class="container">
-  <div class="brand">
-    <img src="/links/ctrl-logo.png" alt="Ctrl Studio" class="logo">
-    <span class="tagline">Tu web, bajo control</span>
-  </div>
+    <div class="header">
+      <div class="logo-wrap">
+        <img src="/links/ctrl-logo.png" alt="Ctrl Studio" class="logo">
+        </div>
+      </div>
+      <span class="brand">Ctrl Studio</span>
+      <span class="tagline">Desarrollo web freelance</span>
+    </div>
 
-  <div class="divider"></div>
+    <div class="kb-scene">
+      <div class="keyboard">
+        <div class="kb-label">— seleccioná una tecla —</div>
+        <div class="key-rows">
 
-  <div class="links">
+          <!-- Row 1 -->
+          <div class="key-row">
+            <a class="key" href="https://www.ctrlstudiodev.com/" target="_blank">
+              <span class="k-corner">↗</span>
+              <span class="k-main">Website</span>
+              <span class="k-sub">ctrlstudiodev.com</span>
+            </a>
+            <a class="key" href="https://api.whatsapp.com/send/?phone=542215906581&text&type=phone_number&app_absent=0" target="_blank">
+              <span class="k-corner">↗</span>
+              <span class="k-main">Whatsapp</span>
+              <span class="k-sub">Escribinos</span>
+            </a>
+            <a class="key" href="https://www.ctrlstudiodev.com/yo" target="_blank">
+              <span class="k-corner">↗</span>
+              <span class="k-main">Portfolio</span>
+              <span class="k-sub">Proyectos</span>
+            </a>
+          </div>
 
-    <!-- WEB -->
-    <a class="link-btn primary" href="https://www.ctrlstudiodev.com/" target="_blank">
-      <span class="left">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <circle cx="10" cy="10" r="8.5" class="icon-stroke" stroke="#EDECEA" stroke-width="1.8"/>
-          <path d="M10 1.5C10 1.5 7 5.5 7 10s3 8.5 3 8.5" class="icon-stroke" stroke="#EDECEA" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M10 1.5C10 1.5 13 5.5 13 10s-3 8.5-3 8.5" class="icon-stroke" stroke="#EDECEA" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="1.5" y1="10" x2="18.5" y2="10" class="icon-stroke" stroke="#EDECEA" stroke-width="1.8"/>
-          <path d="M2.5 6.5h15M2.5 13.5h15" class="icon-stroke" stroke="#EDECEA" stroke-width="1.8" stroke-linecap="round"/>
-        </svg>
-        <span>Sitio web</span>
-      </span>
-      <svg class="arrow-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#EDECEA" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="9" x2="15" y2="9"/>
-        <polyline points="10,4 15,9 10,14"/>
-      </svg>
-    </a>
+          <!-- Row 2 -->
+          <div class="key-row">
+            <a class="key" href="https://www.instagram.com/ctrlstudio.dev/" target="_blank">
+              <span class="k-corner">↗</span>
+              <span class="k-main">Instagram</span>
+              <span class="k-sub">@ctrlstudio.dev</span>
+            </a>
+            <a class="key" href="mailto:hola@ctrlstudiodev.com" target="_blank">
+              <span class="k-corner">↗</span>
+              <span class="k-main">Mail</span>
+              <span class="k-sub">hola@ctrlstudiodev</span>
+            </a>
+            <a class="key key-enter" href="https://api.whatsapp.com/send/?phone=542215906581&text&type=phone_number&app_absent=0" target="_blank">
+              <span class="k-main">Empezar ↵</span>
+              <span class="k-sub">proyecto</span>
+            </a>
+          </div>
 
-    <!-- WHATSAPP -->
-    <a class="link-btn" href="https://api.whatsapp.com/send/?phone=542215906581&text&type=phone_number&app_absent=0" target="_blank">
-      <span class="left">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M10 2C5.58 2 2 5.36 2 9.5c0 1.7.57 3.27 1.53 4.54L2.5 18l4.2-1.34A8.08 8.08 0 0 0 10 17c4.42 0 8-3.36 8-7.5S14.42 2 10 2z"
-            class="icon-stroke" stroke="#111" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M7.5 8c0-.28.22-.5.5-.5h.5a.5.5 0 0 1 .5.5l.25 1a.5.5 0 0 1-.13.49l-.37.37a4.1 4.1 0 0 0 1.89 1.89l.37-.37a.5.5 0 0 1 .49-.13l1 .25a.5.5 0 0 1 .5.5V12a.5.5 0 0 1-.5.5C9.57 12.5 7.5 10.43 7.5 8z"
-            class="icon-stroke" stroke="#111" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span>WhatsApp</span>
-      </span>
-      <svg class="arrow-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="9" x2="15" y2="9"/>
-        <polyline points="10,4 15,9 10,14"/>
-      </svg>
-    </a>
+          <!-- Row 3 -->
+          <div class="key-row">
+            <div class="key key-ctrl">
+              <span class="k-main">CTRL</span>
+              <span class="k-sub">build. launch. ctrl.</span>
+            </div>
+            <a class="key key-space" href="https://www.ctrlstudiodev.com/" target="_blank">
+              <span class="k-label">ctrlstudiodev.com</span>
+              <span class="k-url">Tu web, bajo control →</span>
+            </a>
+          </div>
 
-    <!-- PORTFOLIO -->
-    <a class="link-btn" href="https://www.ctrlstudiodev.com/yo" target="_blank">
-      <span class="left">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <rect x="2" y="5" width="16" height="13" rx="1.5" class="icon-stroke" stroke="#111" stroke-width="1.8"/>
-          <path d="M7 5V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1" class="icon-stroke" stroke="#111" stroke-width="1.8" stroke-linecap="round"/>
-          <line x1="2" y1="10" x2="18" y2="10" class="icon-stroke" stroke="#111" stroke-width="1.8"/>
-          <line x1="10" y1="10" x2="10" y2="18" class="icon-stroke" stroke="#111" stroke-width="1.8"/>
-        </svg>
-        <span>Portfolio</span>
-      </span>
-      <svg class="arrow-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="9" x2="15" y2="9"/>
-        <polyline points="10,4 15,9 10,14"/>
-      </svg>
-    </a>
+        </div>
+      </div>
+    </div>
 
-    <!-- INSTAGRAM -->
-    <a class="link-btn" href="https://www.instagram.com/ctrlstudio.dev/" target="_blank">
-      <span class="left">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <rect x="2.5" y="2.5" width="15" height="15" rx="4" class="icon-stroke" stroke="#111" stroke-width="1.8"/>
-          <circle cx="10" cy="10" r="3.5" class="icon-stroke" stroke="#111" stroke-width="1.8"/>
-          <circle cx="14.8" cy="5.2" r="1" class="icon-fill" fill="#111"/>
-        </svg>
-        <span>Instagram</span>
-      </span>
-      <svg class="arrow-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round">
-        <line x1="3" y1="9" x2="15" y2="9"/>
-        <polyline points="10,4 15,9 10,14"/>
-      </svg>
-    </a>
+    <div class="footer">© 2026 Ctrl Studio</div>
 
   </div>
-
-  <div class="footer">Build. Launch. Ctrl.</div>
-</div>
 
 </body>
 </html>
